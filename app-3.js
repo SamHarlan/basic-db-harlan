@@ -24,8 +24,6 @@ app.all('/', function HandleAll(request, response, next){
     next();
 });
 
-app.use('/api', router);
-
 app.listen(port, function ServerListener() {
     console.log('Sample App with router. This app serves static content');
     console.log('http://leia.cs.spu.edu:3010');
