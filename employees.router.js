@@ -3,23 +3,18 @@ var router = express.Router();		// Router object for routes
 var db = ("./db")
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
+db.exports.get.connect(function(err)) {
+  if (err) throw err;
+  console.log("Connected!");
+  connection.query("SELECT * FROM employees LIMIT 5", function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+      response.write(result);
+      response.write("insile function");
+      //response.send(result);
+  });
 
-  exports.getAll = function GetAllHandler(done){
-    db.get().query(
-        'SELECT * FROM friends LIMIT 30', function SelectQueryHandler(err, result, fields){
-          response.write("1");
-            if (err) {
-              response.write("result error");
-              console.log("error getting all");
-                return done(err);
-              }
-            //done(null, result, fields);
-            response.write("result success");
-            console.log(result);
-        });
-}
-  //  rounter.get('/all');
-
+});
 response.write("result end");
 response.write('Home Page');
 response.end();
