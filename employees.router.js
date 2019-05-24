@@ -6,8 +6,7 @@ var db = require('./db');
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
   exports.getAll = function GetAllHandler(done){
-      db.get().query(
-          'select
+      db.get().query('select
   E.first_name as emp_first_name,
   E.last_name as emp_last_name,
   dept_name,
@@ -15,7 +14,7 @@ router.get('/', function handleRootGet(request, response) {
   B.last_name as boss_last_name
 from
   employees E,
-  dept_emp DE, 
+  dept_emp DE,
   departments D,
   dept_manager DM,
   employees B
