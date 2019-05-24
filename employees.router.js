@@ -1,6 +1,6 @@
 var express = require('express');	// imports the express library
 var router = express.Router();		// Router object for routes
-var db = require('./db');
+var db = require('./db.js');
 
 
 // Setting home route response
@@ -10,7 +10,7 @@ router.get('/', function handleRootGet(request, response) {
             if (err)
                 return done(err);
             response.send(result);
-            done(null, result, fields);
+            //done(null, result, fields);
     });
     response.send('Home Page');
 
