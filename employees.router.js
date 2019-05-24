@@ -7,18 +7,20 @@ router.get('/', function handleRootGet(request, response) {
   exports.getAll = function GetAllHandler(done){
     db.get().query(
         'SELECT * FROM friends LIMIT 30', function SelectQueryHandler(err, result, fields){
+          response.write("1");
             if (err) {
+              response.write("result error");
               console.log("error getting all");
                 return done(err);
               }
             //done(null, result, fields);
-            response.write("result");
+            response.write("result success");
             console.log(result);
         });
 }
   //  rounter.get('/all');
 
-response.write("result");
+response.write("result end");
 response.write('Home Page');
 response.end();
     // Create a static page with links to all 5 requests, or serve that page here
