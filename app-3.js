@@ -4,10 +4,7 @@ var db = require('./db');
 
 var port = 3010;
 
-// http://leia.cs.spu.edu:3010
-app.use('/', myRouter);
-//Serves static content from directory public
-app.use('/', express.static('public'));
+
 
 db.connect(function ConnectionHandler(err){
     if (err){
@@ -18,6 +15,11 @@ db.connect(function ConnectionHandler(err){
 });
 
 var myRouter = require('./employees.router.js');
+
+// http://leia.cs.spu.edu:3010
+app.use('/', myRouter);
+//Serves static content from directory public
+app.use('/', express.static('public'));
 
 app.all('/', function HandleAll(request, response, next){
     console.log(request.connection.remoteAddress);
