@@ -5,8 +5,27 @@ var db = require('./db.js');		// Get access to the Database
 
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
-  response.sendfile('public/index.html');
+ // response.sendfile('public/index.html');
   //response.send('Home Page');
+  '<!DOCTYPE html> \n' +
+      '<html lang="en" dir="ltr"> \n' +
+      '  <head> \n' +
+      '    <meta charset="utf-8"> \n' +
+      '    <title>MySQL Assignment</title> \n' +
+      '    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> \n' +
+      '  </head> \n' +
+      '  <body> \n' +
+      '      <div class="container"> \n' + '<br>' + '<br>' +
+      '       <h1>Welcome!</h1> \n' +
+      '       <h5>Choose a button that you want to be directed..</h5> \n' + '<br>' +
+      '       <a href="/employees" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">View Employees</a> \n' +
+      '       <a href="/salaries" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">View Salaries</a> \n' +
+      '       <a href="/departments" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">View Departments</a> \n' +
+      '       <a href="/bosses" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">View Bosses</a> \n' +
+      '       <a href="/all" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">View All</a> \n' +
+      '      </div> \n' +
+      '  </body> \n' +
+      '</html> \n'
   // Create a static page with links to all 5 requests, or serve that page here
 });
 
