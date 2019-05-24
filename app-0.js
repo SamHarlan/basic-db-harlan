@@ -5,10 +5,10 @@ const port = 3010;
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: "localhost",
-    user: “DBuser",
-    password: ”csc3221!",
-    database: "employees"
+  host: "localhost",
+  user: "dbuser",
+  password: "csc3221!",
+  database: "employees"
 });
 
 connection.connect(function (err) {
