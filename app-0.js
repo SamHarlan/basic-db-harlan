@@ -17,6 +17,7 @@ connection.connect(function (err) {
     connection.query("SELECT * FROM employees LIMIT 5", function (err, result, fields) {
         if (err) throw err;
         console.log(result);
+        response.send(result);
     });
 });
 
