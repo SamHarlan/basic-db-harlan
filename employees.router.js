@@ -26,6 +26,8 @@ router.get('/', function handleRootGet(request, response) {
       '      </div> \n' +
       '  </body> \n' +
       '</html> \n'
+
+      response.send('Home Page');
   // Create a static page with links to all 5 requests, or serve that page here
 });
 
