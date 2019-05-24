@@ -3,7 +3,7 @@ var router = express.Router();		// Router object for routes
 var db = ("./db")
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
-db.exports.get.connect(function(err) {
+db.connect(function connectToDatabase(err) {
   if (err) throw err;
   console.log("Connected!");
   connection.query("SELECT * FROM employees LIMIT 5", function (err, result, fields) {
