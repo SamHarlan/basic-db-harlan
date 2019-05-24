@@ -4,17 +4,19 @@ var db = ("./db")
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
 
-  db.ConnectionHandler.connect(function (err) {
-      if (err) throw err;
-      console.log("Connected!");
-      connection.query("SELECT * FROM employees LIMIT 5", function (err, result, fields) {
-          if (err) throw err;
-          console.log(result);
-          response.write(result);
-      });
+  exports.getAll = function GetAllHandler(done){
+    db.get().query(
+        'SELECT * FROM friends LIMIT 30', function SelectQueryHandler(err, result, fields){
+            if (err)
+                return done(err);
+            //done(null, result, fields);
+            response.write(result);
+            console.log(result);
+        });
+}
   //  rounter.get('/all');
-    })
-  
+
+
 response.send('Home Page');
     // Create a static page with links to all 5 requests, or serve that page here
 });
