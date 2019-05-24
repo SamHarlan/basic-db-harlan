@@ -5,8 +5,8 @@ var db = require('./db.js');		// Get access to the Database
 
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
-  //response.sendfile('public/index.html');
-  response.send('Home Page');
+  response.sendfile('public/index.html');
+  //response.send('Home Page');
   // Create a static page with links to all 5 requests, or serve that page here
 });
 
