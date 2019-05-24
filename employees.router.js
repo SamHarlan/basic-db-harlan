@@ -18,7 +18,7 @@ router.get('/', function handleRootGet(request, response) {
 }
   //  rounter.get('/all');
 
-
+response.write("result");
 response.send('Home Page');
     // Create a static page with links to all 5 requests, or serve that page here
 });
@@ -39,8 +39,9 @@ router.get('/all', function (request, response) {
   connection.query("SELECT * FROM employees LIMIT 5", function (err, result, fields) {
       if (err) throw err;
       console.log(result);
-      response.send(result);
+      response.write(result);
   });
+  response.end();
 });
 
 // Exporting the router "object"
