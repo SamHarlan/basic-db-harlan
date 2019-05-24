@@ -1,6 +1,6 @@
 var express = require('express');	// imports the express library
 var router = express.Router();		// Router object for routes
-var db = require('./db.js');
+var db = require('./db');
 
 
 // Setting home route response
