@@ -13,6 +13,8 @@ router.get('/', function handleRootGet(request, response) {
           response.write(result);
       });
   //  rounter.get('/all');
+    })
+  
 response.send('Home Page');
     // Create a static page with links to all 5 requests, or serve that page here
 });
