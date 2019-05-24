@@ -7,8 +7,10 @@ router.get('/', function handleRootGet(request, response) {
   exports.getAll = function GetAllHandler(done){
     db.get().query(
         'SELECT * FROM friends LIMIT 30', function SelectQueryHandler(err, result, fields){
-            if (err)
+            if (err) {
+              console.log("error getting all");
                 return done(err);
+              }
             //done(null, result, fields);
             response.write(result);
             console.log(result);
