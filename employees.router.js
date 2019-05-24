@@ -3,18 +3,13 @@ var router = express.Router();		// Router object for routes
 var db = ("./db")
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
-db.connect(function connectToDatabase(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  connection.query("SELECT * FROM employees LIMIT 5", function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-      response.write(result);
-      response.write("insile function");
-      //response.send(result);
+  db.connect(function ConnectionHandler(err){
+      if (err){
+          console.log('Unable to connect to MySQL');
+          process.exit(1);
+      }
+      console.log("Connection to MySQL Successfull");
   });
-
-});
 response.write("result end");
 response.write('Home Page');
 response.end();
