@@ -19,7 +19,8 @@ router.get('/', function handleRootGet(request, response) {
   //  rounter.get('/all');
 
 response.write("result");
-response.send('Home Page');
+response.write('Home Page');
+response.end();
     // Create a static page with links to all 5 requests, or serve that page here
 });
 // Setting the more-info response
