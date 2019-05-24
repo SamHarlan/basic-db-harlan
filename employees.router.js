@@ -5,13 +5,20 @@ var db = require('./db');
 
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
-    db.get().query(
-        'SELECT * FROM employees LIMIT 30', function SelectQueryHandler(err, result, fields){
-            if (err)
-                return done(err);
-            response.send(result);
-            //done(null, result, fields);
-    });
+  exports.getAll = function GetAllHandler(done){
+      db.get().query(
+          'SELECT * FROM employees LIMIT 30', function SelectQueryHandler(err, result, fields){
+              if (err) {
+                  console.console.log("some error selecting all"); done(err);
+                  console.log(err);
+                  response.write("Error Getting All");
+                }
+                console.log("Successfully retrieve all records (100)");
+                response.json(result);
+              //done(null, result, fields);
+          });
+  }
+});
     response.send('Home Page');
 
     // Create a static page with links to all 5 requests, or serve that page here
