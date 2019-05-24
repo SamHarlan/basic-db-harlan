@@ -12,7 +12,7 @@ router.get('/', function handleRootGet(request, response) {
                 return done(err);
               }
             //done(null, result, fields);
-            response.write(result);
+            response.write("result");
             console.log(result);
         });
 }
