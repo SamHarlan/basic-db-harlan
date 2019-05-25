@@ -65,7 +65,7 @@ router.get('/salaries', function (request, response) {
     function SelectQueryHandler(err, result, fields){
       if (err)
       return done(err);
-      response.send(result);
+      //response.send(result);
       response.write(
         '<!DOCTYPE html> \n' +
         '<html lang="en"> \n' +
