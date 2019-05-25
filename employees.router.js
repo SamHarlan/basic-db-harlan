@@ -95,7 +95,7 @@ router.get('/salaries', function (request, response) {
           '<tr> \n' +          
           '	<td>' + record["first_name"] + '</td> \n' +
           '	<td>' + record["last_name"] + '</td> \n' +
-          '	<td>' + record["emp_no"] + '</td> \n' +
+          '	<td>' + record["salary"] + '</td> \n' +
           '</tr> \n'
         );
       }
