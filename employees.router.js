@@ -131,7 +131,6 @@ router.get('/salaries', function (request, response) {
         '			<th scope="col">First Name</th> \n' +
         '			<th scope="col">Last Name</th> \n' +
         '     <th scope="col">dept_name</th> \n' + 
-        '     <th scope="col">departments</th> \n' + 
         '		</tr> \n' +
         '	</thead> \n' +
         '	<tbody> \n'
@@ -142,7 +141,6 @@ router.get('/salaries', function (request, response) {
           '	<td>' + record["first_name"] + '</td> \n' +
           '	<td>' + record["last_name"] + '</td> \n' +
           '	<td>' + record["dept_name"] + '</td> \n' +
-          '	<td>' + record["departments"] + '</td> \n' +
           '</tr> \n'
         );
       }
@@ -153,7 +151,7 @@ router.get('/salaries', function (request, response) {
 
     router.get('/bosses', function (request, response) {
       db.get().query(
-        'SELECT emp_no, first_name FROM employees LIMIT 30',
+        'select E.first_name as emp_first_name, E.last_name as emp_last_name, dept_name, B.first_name as boss_first_name, B.last_name as boss_last_name from employees E, dept_emp DE, departments D, dept_manager DM, employees B where E.emp_no = DE.emp_no and DE.dept_no=D.dept_no and DE.to_date="9999-01-01" and E.emp_no=10005 and DM.to_date="9999-01-01" and D.dept_no=DM.dept_no and B.emp_no=DM.emp_no LIMIT 30',
         function SelectQueryHandler(err, result, fields){
           if (err)
           return done(err);
