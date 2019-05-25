@@ -185,8 +185,8 @@ router.get('/salaries', function (request, response) {
           for (record of result){
             response.write(
               '<tr> \n' +          
-              '	<td>' + record["first_name"] + '</td> \n' +
-              '	<td>' + record["last_name"] + '</td> \n' +
+              '	<td>' + record["employee_first_name"] + '</td> \n' +
+              '	<td>' + record["employee_last_name"] + '</td> \n' +
               '	<td>' + record["dept_name"] + '</td> \n' +
               '	<td>' + record["boss_first_name"] + '</td> \n' +
               '	<td>' + record["boss_last_name"] + '</td> \n' +
