@@ -140,7 +140,7 @@ router.get('/salaries', function (request, response) {
           '<tr> \n' +          
           '	<td>' + record["first_name"] + '</td> \n' +
           '	<td>' + record["last_name"] + '</td> \n' +
-          '	<td>' + record["departments"] + '</td> \n' +
+          '	<td>' + record["dept_name"] + '</td> \n' +
           '</tr> \n'
         );
       }
@@ -240,7 +240,7 @@ router.get('/salaries', function (request, response) {
                 '	<td>' + record["emp_no"] + '</td> \n' +        
                 '	<td>' + record["first_name"] + '</td> \n' +
                 '	<td>' + record["last_name"] + '</td> \n' +
-                '	<td>' + record["departments"] + '</td> \n' +
+                '	<td>' + record["dept_name"] + '</td> \n' +
                 '	<td>' + record["salary"] + '</td> \n' +
                 '	<td>' + record["boss_first_name"] + '</td> \n' +
                 '	<td>' + record["boss_last_name"] + '</td> \n' +
