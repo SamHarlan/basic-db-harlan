@@ -155,7 +155,46 @@ router.get('/salaries', function (request, response) {
         function SelectQueryHandler(err, result, fields){
           if (err)
           return done(err);
-          response.send(result);
+          //response.send(result);
+          response.write(
+            '<!DOCTYPE html> \n' +
+            '<html lang="en"> \n' +
+            '        <head> \n' +
+            '               <meta charset="utf-8"> \n' +
+            '               <meta http-equiv="X-UA-Compatible" content="IE=edge"> \n' +
+            '               <meta name="viewport" content="width=device-width, initial-scale=1"> \n' +
+            '               <meta name="description" content="30 Employees"> \n' +
+            '               <meta name="author" content="Sam Harlan"> \n' +
+            '               <script type="text/javascript" src="buses.js"></script> \n' +
+            '               <title>Client Side Example</title> \n' +
+            '               <!-- Bootstrap core CSS --> \n' +
+            '               <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> \n' +
+            '       </head> \n' +
+            '<table class="table table-bordered table-hover"> \n' +
+            '	<thead class = "thead-dark"> \n' +
+            '		<tr> \n' +
+            '			<th scope="col">First Name</th> \n' +
+            '			<th scope="col">Last Name</th> \n' +
+            '     <th scope="col">dept_name</th> \n' + 
+            '     <th scope="col">boss first name</th> \n' + 
+            '     <th scope="col">boss last name</th> \n' + 
+            '		</tr> \n' +
+            '	</thead> \n' +
+            '	<tbody> \n'
+          );
+          for (record of result){
+            response.write(
+              '<tr> \n' +          
+              '	<td>' + record["first_name"] + '</td> \n' +
+              '	<td>' + record["last_name"] + '</td> \n' +
+              '	<td>' + record["dept_name"] + '</td> \n' +
+              '	<td>' + record["boss_first_name"] + '</td> \n' +
+              '	<td>' + record["boss_last_name"] + '</td> \n' +
+              '</tr> \n'
+            );
+          }
+          response.write("</tbody></table></body></html>");
+          response.end();
         });
       });
 
