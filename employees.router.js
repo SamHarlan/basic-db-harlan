@@ -1,6 +1,6 @@
 var express = require('express');	// imports the express library
 var router = express.Router();		// Router object for routes
-var db = require('./db.js');		// Get access to the Database
+var db = require('./db.js');
 
 
 // Setting home route response
@@ -8,11 +8,9 @@ router.get('/', function handleRootGet(request, response) {
   db.connect(function ConnectToDatabase(err){
     if (err){
       console.log("Unable to Connect to MySQL");
-      process.exit(1); //Possibly need to send error page to client
     }
   });
   response.sendfile('public/index.html');
-  //response.send('Home Page');
   // Create a static page with links to all 5 requests, or serve that page here
 });
 
@@ -20,7 +18,7 @@ router.get('/employees', function (request, response) {
   db.get().query("SELECT first_name,last_name,emp_no FROM employees LIMIT 30", function QueryHandler(err, result, fields){
     if (err)
     throw err;
-    //response.send(JSON.stringify(result));
+    
     response.write(
       '<!DOCTYPE html> \n' +
       '<html lang="en"> \n' +
@@ -65,7 +63,7 @@ router.get('/salaries', function (request, response) {
     function SelectQueryHandler(err, result, fields){
       if (err)
       return done(err);
-      //response.send(result);
+
       response.write(
         '<!DOCTYPE html> \n' +
         '<html lang="en"> \n' +
@@ -110,7 +108,7 @@ router.get('/salaries', function (request, response) {
       function SelectQueryHandler(err, result, fields){
         if (err)
         return done(err);
-       // response.send(result);
+       
        response.write(
         '<!DOCTYPE html> \n' +
         '<html lang="en"> \n' +
@@ -155,7 +153,7 @@ router.get('/salaries', function (request, response) {
         function SelectQueryHandler(err, result, fields){
           if (err)
           return done(err);
-          //response.send(result);
+          
           response.write(
             '<!DOCTYPE html> \n' +
             '<html lang="en"> \n' +
@@ -206,7 +204,7 @@ router.get('/salaries', function (request, response) {
         function SelectQueryHandler(err, result, fields){
             if (err)
             return done(err);
-            //response.write(result);
+            
             response.write(
               '<!DOCTYPE html> \n' +
               '<html lang="en"> \n' +
@@ -253,5 +251,5 @@ router.get('/salaries', function (request, response) {
           });
         });
 
-        // Exporting the router "object"
+        
         module.exports = router;
