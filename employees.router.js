@@ -205,7 +205,7 @@ router.get('/salaries', function (request, response) {
         function SelectQueryHandler(err, result, fields){
             if (err)
             return done(err);
-            //response.send(result);
+            response.write(result);
             response.write(
               '<!DOCTYPE html> \n' +
               '<html lang="en"> \n' +
@@ -238,8 +238,8 @@ router.get('/salaries', function (request, response) {
               response.write(
                 '<tr> \n' +  
                 '	<td>' + record["emp_no"] + '</td> \n' +        
-                '	<td>' + record["emp_first_name"] + '</td> \n' +
-                '	<td>' + record["emp_last_name"] + '</td> \n' +
+                '	<td>' + record["first_name"] + '</td> \n' +
+                '	<td>' + record["last_name"] + '</td> \n' +
                 '	<td>' + record["dept_name"] + '</td> \n' +
                 '	<td>' + record["salary"] + '</td> \n' +
                 '	<td>' + record["boss_first_name"] + '</td> \n' +
