@@ -173,8 +173,8 @@ router.get('/salaries', function (request, response) {
             '<table class="table table-bordered table-hover"> \n' +
             '	<thead class = "thead-dark"> \n' +
             '		<tr> \n' +
-            '			<th scope="col">First Name</th> \n' +
-            '			<th scope="col">Last Name</th> \n' +
+            '			<th scope="col">Employee First Name</th> \n' +
+            '			<th scope="col">Employee Last Name</th> \n' +
             '     <th scope="col">dept_name</th> \n' + 
             '     <th scope="col">boss first name</th> \n' + 
             '     <th scope="col">boss last name</th> \n' + 
@@ -185,8 +185,8 @@ router.get('/salaries', function (request, response) {
           for (record of result){
             response.write(
               '<tr> \n' +          
-              '	<td>' + record["employee_first_name"] + '</td> \n' +
-              '	<td>' + record["employee_last_name"] + '</td> \n' +
+              '	<td>' + record["emp_first_name"] + '</td> \n' +
+              '	<td>' + record["emp_last_name"] + '</td> \n' +
               '	<td>' + record["dept_name"] + '</td> \n' +
               '	<td>' + record["boss_first_name"] + '</td> \n' +
               '	<td>' + record["boss_last_name"] + '</td> \n' +
