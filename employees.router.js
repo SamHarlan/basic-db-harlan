@@ -5,6 +5,12 @@ var db = require('./db.js');		// Get access to the Database
 
 // Setting home route response
 router.get('/', function handleRootGet(request, response) {
+  db.connect(function ConnectToDatabase(err){
+    if (err){
+      console.log("Unable to Connect to MySQL");
+      process.exit(1); //Possibly need to send error page to client
+    }
+  });
   response.sendfile('public/index.html');
   //response.send('Home Page');
   // Create a static page with links to all 5 requests, or serve that page here
@@ -28,7 +34,7 @@ router.get('/employees', function (request, response) {
         '               <meta http-equiv="X-UA-Compatible" content="IE=edge"> \n' +
         '               <meta name="viewport" content="width=device-width, initial-scale=1"> \n' +
         '               <meta name="description" content="30 Employees"> \n' +
-        '               <meta name="author" content="Lhakpa Sherpa"> \n' +
+        '               <meta name="author" content="Sam Harlan"> \n' +
         '               <script type="text/javascript" src="buses.js"></script> \n' +
         '               <title>Client Side Example</title> \n' +
         '               <!-- Bootstrap core CSS --> \n' +
